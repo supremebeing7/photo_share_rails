@@ -7,10 +7,17 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    @tags = Tag.all
   end
 
   def create
     @photo = Photo.new(photo_params)
+    @tags = Tag.all
+    @all_tags = []
+    if !params[:tag].nil?
+      params[:tag].each { |key, value| @all_tags << Tag.find_by(name: value) }
+    end
+    @all_tags.each { |tag| @photo.tags << tag }
     if @photo.save
       redirect_to root_path, notice: "Photo saved"
     else

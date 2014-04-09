@@ -9,5 +9,6 @@ PhotoShare::Application.routes.draw do
   resources :users
   resources :photos
   resources :sessions, only: [:new, :create, :destroy]
+  resources :tags, only: [:new, :create]
 
 end

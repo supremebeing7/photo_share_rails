@@ -1,0 +1,15 @@
+<%= content_for(:title, "Add Tag") %>
+
+<h1>Add a tag</h1>
+
+
+<%= form_for(@tag) do |f| %>
+
+  <div class="row">
+    <div class='form-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>
