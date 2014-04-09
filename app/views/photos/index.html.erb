@@ -2,3 +2,7 @@
 
 <h1>Photo Share</h1>
 
+<% @photos.each do |photo| %>
+  <%= link_to image_tag(photo.photo.url(:thumb)), photo_path(photo) %><br />
+  <%= photo.caption %>
+<% end %>

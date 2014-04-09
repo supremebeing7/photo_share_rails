@@ -11,15 +11,18 @@
   <div class = "navbar navbar-default navbar-fixed-top">
     <div class="container">
       <%= link_to "Home", photos_path, class: "navbar-text pull-left" %>
+      <% if current_user %>
+        <%= link_to "Add Photo", new_photo_path, class: "navbar-text pull-left" %>
+      <% end %>
       <div class="navbar-text pull-right">
         <%= flash[:alert] %>
         <%= flash[:notice] %>
         <% if current_user %>
           Logged in as <%= current_user.name %>  |
-          <%= link_to "Sign Out", session_path("current"), method: "delete" %>
+          <%= link_to "Sign Out", logout_path %>
         <% else %>
-          <%= link_to "Sign Up", new_user_path %>  |
-          <%= link_to "Sign In", new_session_path %>
+          <%= link_to "Sign Up", signup_path %>  |
+          <%= link_to "Sign In", login_path %>
         <% end %>
       </div>
     </div>
