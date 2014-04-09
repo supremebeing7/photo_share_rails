@@ -1,4 +1,10 @@
-<%= image_tag @photo.photo.url %>
-<%= @photo.caption %>
+<h1>Photo</h1>
 
+<p><%= image_tag @photo.photo.url %></p>
+<p><%= @photo.caption %></p>
+<ul>Tags
+<% @photo.tags.each do |tag| %>
+  <li><%= tag.name %></li>
+<% end %>
+</ul>
 

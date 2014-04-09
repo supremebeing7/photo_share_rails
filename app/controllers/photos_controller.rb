@@ -14,9 +14,14 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @tags = Tag.all
     @all_tags = []
-    if !params[:tag].nil?
-      params[:tag].each { |key, value| @all_tags << Tag.find_by(name: value) }
+    if !params[:photo][:tag_ids].nil?
+      params[:photo][:tag_ids].each do |tag_id|
+        if tag_id != ""
+          @all_tags << Tag.find(tag_id)
+        end
+      end
     end
+
     @all_tags.each { |tag| @photo.tags << tag }
     if @photo.save
       redirect_to root_path, notice: "Photo saved"

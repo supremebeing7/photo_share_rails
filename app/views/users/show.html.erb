@@ -3,13 +3,10 @@
 <h1>Photos by <%= @user.name %></h1>
 
 <% @user.photos.each_with_index do |photo, index| %>
-  <%= link_to image_tag(photo.photo.url(:thumb), class: "photo#{index}"),
-              photo_path(photo) %>
-  <br />
-  <%= photo.caption %>
-  <br />
-  <%= link_to "Delete Photo", photo_path(photo), method: "delete" %>
-  <br/ >
+  <p><%= link_to image_tag(photo.photo.url(:thumb), class: "photo#{index}"),
+              photo_path(photo) %></p>
+  <p><%= photo.caption %></p>
+  <p><%= link_to "Delete Photo", photo_path(photo), method: "delete" %></p>
 <% end %>
 
 <%= link_to "Delete Account", user_path(@user), method: "delete" %>
