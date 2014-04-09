@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class = "navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <%= link_to "Home", photos_path, class: "navbar-text pull-left" %>
+      <div class="navbar-text pull-right">
+        <%= flash[:alert] %>
+        <%= flash[:notice] %>
+        <% if current_user %>
+          Logged in as <%= current_user.name %>  |
+          <%= link_to "Sign Out", session_path("current"), method: "delete" %>
+        <% else %>
+          <%= link_to "Sign Up", new_user_path %>  |
+          <%= link_to "Sign In", new_session_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="main">
+
+
+  <%= yield %>
+
+
+  </div>
+
+</body>
+</html>
