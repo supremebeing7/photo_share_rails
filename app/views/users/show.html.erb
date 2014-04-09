@@ -7,4 +7,9 @@
               photo_path(photo) %>
   <br />
   <%= photo.caption %>
+  <br />
+  <%= link_to "Delete Photo", photo_path(photo), method: "delete" %>
+  <br/ >
 <% end %>
+
+<%= link_to "Delete Account", user_path(@user), method: "delete" %>

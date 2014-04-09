@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
   validates :name, :email, presence: true
   validates :email, uniqueness: true
   validates :password_digest, presence: true
-  has_many :photos
+  has_many :photos, dependent: :destroy
 end
