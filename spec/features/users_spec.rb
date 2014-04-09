@@ -36,6 +36,7 @@ describe User do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Log In'
+      save_and_open_page
       click_link 'Sign Out'
       page.should have_content "Logged out!"
     end

@@ -8,7 +8,7 @@ describe Photo do
       attach_file("Photo", File.expand_path("./app/EOwsjaMZ.png"))
       fill_in "Caption", with: "whatever!"
       click_button "Create Photo"
-      page.should have_xpath("//image[@alt='EWowsjaMZ]'")
+      page.should have_xpath("//img[@alt='Eowsjamz']")
     end
   end
 end
