@@ -20,5 +20,7 @@
     <%= link_to "Add a New Tag", new_tag_path %>
     <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
+  <br />
+  <br />
   <%= f.submit class: "btn btn-success" %>
 <% end %>

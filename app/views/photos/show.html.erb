@@ -8,3 +8,7 @@
 <% end %>
 </ul>
 
+<% if current_user.id == @photo.user.id %>
+  <p><%= link_to "Delete Photo", photo_path(@photo), method: "delete" %></p>
+<% end %>
+
